@@ -6,7 +6,7 @@ public class InitialData {
 
     // Default constructor using this() to call the parameterised constructor
     public InitialData() {
-        this(0, "2024-10-01T12:00:00"); // Default values for batchId and dateTime
+        this(0000, "2024-10-01T12:00:00"); // Default values for batchId and dateTime
     }
 
     // Parameterised constructor for initializing batchId and dateTime
