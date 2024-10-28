@@ -1,4 +1,4 @@
-public class CoaterData extends InitialData {
+public final class CoaterData extends InitialData {
     private double coatingThickness;
 
     public CoaterData(int batchId, String dateTime, double coatingThickness ) {
@@ -16,7 +16,6 @@ public class CoaterData extends InitialData {
 
     @Override
     public void printData() {
-        super.printData();
-        System.out.println("Coating Thickness: " + this.coatingThickness);
+        System.out.println("Batch ID: " + getBatchId() + ", DateTime: " + getDateTime() + ", Coating Thickness: " + coatingThickness);
     }
 }
