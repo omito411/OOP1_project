@@ -4,6 +4,7 @@ public abstract sealed class InitialData permits CoaterData, AdditionalData {
     //private attribute to demonstrate encapsulation
     private final int batchId;
     private final String dateTime;
+    private final CoaterDataType dataType;
 
 
    /*  // Constructor using this() to call the parameterised constructor
@@ -12,9 +13,11 @@ public abstract sealed class InitialData permits CoaterData, AdditionalData {
     } */
 
     // Constructor to initializing batchId and dateTime
-    public InitialData(int batchId, String dateTime) {
+    public InitialData(int batchId, String dateTime, CoaterDataType dataType) {
         this.batchId = batchId;
         this.dateTime = dateTime;
+        this.dataType = dataType;
+    
         
     } 
 
@@ -26,6 +29,12 @@ public abstract sealed class InitialData permits CoaterData, AdditionalData {
     public String getDateTime() {
         return dateTime;
     }
+
+    public CoaterDataType getDataType(){
+        return dataType;
+    }
+
+    
     // Abstract method to be implemented by subclasses
     public abstract void printData();
 

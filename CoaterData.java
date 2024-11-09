@@ -1,8 +1,10 @@
 public final class CoaterData extends InitialData {
     private double coatingThickness;
 
+    //constructor
+
     public CoaterData(int batchId, String dateTime, double coatingThickness ) {
-        super(batchId, dateTime);
+        super(batchId, dateTime, CoaterDataType.THICKNESS);
         this.coatingThickness = coatingThickness;
     }
 
@@ -11,11 +13,22 @@ public final class CoaterData extends InitialData {
     }
 
     public void setCoatingThickness(double coatingThickness) {
+        // Unchecked exception for invalid coatingThickness
+        if (coatingThickness < 75.0) {
+            throw new InvalidCoatingThicknessException("Coating thickness is too low");
+        }
         this.coatingThickness = coatingThickness;
     } 
 
+
     @Override
     public void printData() {
-        System.out.println("Batch ID: " + getBatchId() + ", DateTime: " + getDateTime() + ", Coating Thickness: " + coatingThickness);
+        System.out.println("CoaterData{" + "Batch ID: " + getBatchId() + ", DateTime: " + getDateTime() + '\'' + " , Coating Thickness: " + coatingThickness + ", dataType=" + getDataType() + '}');
     }
+
+    public CoaterData createCopy() {
+        return new CoaterData(this.getBatchId(), this.getDateTime(), this.getCoatingThickess());
+    }
+
+
 }

@@ -1,22 +1,14 @@
 public class ProcessData {
     
-    public void loadBatch(int batchId, String dateTime, double coatingThickness) {
-        System.out.println("Loading batch number: " + batchId );
-    }
-
-    public void loadBatch(CoaterData[] data) {
-        System.out.println("Loading batch data entries");
-
-        for (CoaterData input : data) {
-            input.printData();
-        }
-    }
-
-    public void analyseData(CoaterData... dataInputs) {
-        System.out.println("Analysing batch data inputs");
-
-        for (var input : dataInputs) {
-            input.printData();
-        }
+    // Analysing Coater data objects using varargs
+    public void DataAnalysis(InitialData ... dataObjects) throws ProcessDataException {
+       for (InitialData data : dataObjects) {
+            if (data instanceof CoaterData cd && cd.getCoatingThickess() <75.0){
+                throw new ProcessDataException("Coating thickness low for batch: " + data.getBatchId());
+            } else if (data instanceof AdditionalData hd && hd.getHomogeneityData() < 90) {
+                    throw new ProcessDataException("Homogeneity low for batch: " + data.getBatchId());
+            }
+            data.printData();
+       } 
     }
 }
