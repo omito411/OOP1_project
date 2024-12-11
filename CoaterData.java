@@ -1,13 +1,13 @@
 public final class CoaterData extends InitialData {
     private double coatingThickness;
 
-    //constructor
+    //constructor to initialise CoaterData
 
     public CoaterData(int batchId, String dateTime, double coatingThickness ) {
         super(batchId, dateTime, CoaterDataType.THICKNESS);
         this.coatingThickness = coatingThickness;
     }
-
+    
     public double getCoatingThickess() {
         return coatingThickness;
     }
@@ -26,6 +26,7 @@ public final class CoaterData extends InitialData {
         System.out.println("CoaterData{" + "Batch ID: " + getBatchId() + ", DateTime: " + getDateTime() + '\'' + " , Coating Thickness: " + coatingThickness + ", dataType=" + getDataType() + '}');
     }
 
+    // Defensive copy for data integrity
     public CoaterData createCopy() {
         return new CoaterData(this.getBatchId(), this.getDateTime(), this.getCoatingThickess());
     }
