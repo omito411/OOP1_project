@@ -36,7 +36,7 @@ public abstract sealed class InitialData permits CoaterData, AdditionalData {
     }
 
     
-    // Abstract method to be implemented by subclasses
+    // Abstract method to be implemented by subclasses (coaterData and AdditionalData)
     public abstract void printData();
 
    /*  //Setters for batchId and dateTime
