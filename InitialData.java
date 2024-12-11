@@ -2,6 +2,7 @@ public abstract sealed class InitialData permits CoaterData, AdditionalData {
     //Sealed to restrict which class can extend it
 
     //private attribute to demonstrate encapsulation
+    // variables
     private final int batchId;
     private final String dateTime;
     private final CoaterDataType dataType;
